@@ -8,14 +8,21 @@
 
 	<dependencies>
 
-		<!-- dependency>
+		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>javafx</artifactId>
 			<version>2.2</version>
 			<systemPath>${java.home}/lib/ext/jfxrt.jar</systemPath>
 			<scope>system</scope>
-		</dependency-->
+		</dependency>
 
+ 		<!-- OpenJFX -->
+    	<!-- dependency>
+	       	<groupId>org.openjfx</groupId>
+	        <artifactId>javafx-controls</artifactId>
+        	<version>11</version>
+    	</dependency-->
+    	
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -28,12 +35,7 @@
 		    <version>2.13.1</version>
 		</dependency>
 		
-		  <!-- JavaFX -->
-    	<dependency>
-	       	<groupId>org.openjfx</groupId>
-	        <artifactId>javafx-controls</artifactId>
-        	<version>11</version>
-    	</dependency>
+		 
 
 	</dependencies>
 
