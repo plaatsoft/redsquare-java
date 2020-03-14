@@ -1,6 +1,7 @@
 package nl.plaatsoft.redsquare.ui;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javafx.animation.AnimationTimer;
 import javafx.concurrent.Task;
@@ -27,8 +28,7 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
  */
 public class Home extends MyPanel {
 
-	/** The Constant log. */
-	private static final Logger log = Logger.getLogger( Home.class);
+	private static final Logger log = LogManager.getLogger( Home.class);
 	
 	/** The blue 1. */
 	private Square blue1;

@@ -25,11 +25,17 @@ public class ReleaseNotes extends MyPanel {
 	/** The version. */
 	private static String[] version = {
 						
-			"09-11-2016 (Version 0.3)\n"		  	
+			"14-03-2020 (Version 0.4.0)\n"		  	
+			+ "- Move project to GitHub.\n"
+			+ "- Added JavaDoc.\n"
+			+ "- Update Log4J2 framework.\n"
+			+ "- Remove Sonar warnings.\n",
+				  	
+			"09-11-2016 (Version 0.3.0)\n"		  	
 		  	+ "- Minor GUI update.\n"
 		  	+ "- Obfuscate classes.\n",
 					
-	        "03-11-2016 (Version 0.2)\n"
+	        "03-11-2016 (Version 0.2.0)\n"
 	      	+ "- Added setting page to control nickname.\n"
 			+ "- Protect blue squares against size hacking.\n"
 			+ "- Protect red square against size hacking.\n"
@@ -39,7 +45,7 @@ public class ReleaseNotes extends MyPanel {
 			+ "- Check java version. If version is outdated, warn user.\n"
 			+ "- Show warning when internet connection is down.\n",
 	
-			"30-10-2016 (Version 0.1)\n"
+			"30-10-2016 (Version 0.1.0)\n"
 			+ "- Added basic sound effects.\n"
 			+ "- Added nice background music.\n"
 			+ "- Added webservice to store local and global highscore.\n"

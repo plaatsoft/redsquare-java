@@ -1,6 +1,8 @@
 package nl.plaatsoft.redsquare.network;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.json.JSONObject;
 
 import nl.plaatsoft.redsquare.tools.Constants;
@@ -13,7 +15,7 @@ import nl.plaatsoft.redsquare.tools.Constants;
 public class CloudProduct {
 
 	/** The Constant log. */
-	private static final Logger log = Logger.getLogger( CloudProduct.class);
+	private static final Logger log = LogManager.getLogger( CloudProduct.class);
 	
 	/** The pid. */
 	private static int pid=0;

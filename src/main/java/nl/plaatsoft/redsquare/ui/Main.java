@@ -2,7 +2,8 @@ package nl.plaatsoft.redsquare.ui;
 
 import javax.swing.JOptionPane;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -19,7 +20,7 @@ import nl.plaatsoft.redsquare.tools.MyMusic;
 public class Main extends Application {
 		
 	/** The Constant log. */
-	private static final Logger log = Logger.getLogger( Main.class);
+	private static final Logger log = LogManager.getLogger(Main.class);
 	
     /**
      * Start.

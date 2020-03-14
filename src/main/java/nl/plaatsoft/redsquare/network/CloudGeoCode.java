@@ -1,6 +1,8 @@
 package nl.plaatsoft.redsquare.network;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import org.json.JSONObject;
 
 /**
@@ -11,7 +13,7 @@ import org.json.JSONObject;
 public class CloudGeoCode {
 
 	/** The Constant log. */
-	private static final  Logger log = Logger.getLogger( CloudGeoCode.class);
+	private static final  Logger log = LogManager.getLogger( CloudGeoCode.class);
 	
 	/** The country. */
 	private static String country;

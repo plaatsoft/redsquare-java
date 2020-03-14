@@ -1,4 +1,0 @@
-v0.3 @wplaat
-- Move project to GitHub
-- Added JavaDoc
-- Remove Sonar warnings
