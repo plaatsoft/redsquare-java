@@ -26,10 +26,21 @@ import org.json.JSONObject;
 
 import nl.plaatsoft.redsquare.tools.Constants;
 
+/**
+ * The Class CloudNewVersion.
+ * 
+ * @author wplaat
+ */
 public class CloudNewVersion {
 	
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( CloudNewVersion.class);
 		
+	/**
+	 * Gets the.
+	 *
+	 * @return the string
+	 */
 	public static String get() {
 
 		String returnValue="";		

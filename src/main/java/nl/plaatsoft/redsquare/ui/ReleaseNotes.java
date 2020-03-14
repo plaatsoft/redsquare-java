@@ -36,8 +36,12 @@ import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+/**
+ * The Class ReleaseNotes.
+ */
 public class ReleaseNotes extends MyPanel {
 	
+	/** The version. */
 	private static String[] version = {
 						
 			"09-11-2016 (Version 0.3)\n"		  	
@@ -64,8 +68,12 @@ public class ReleaseNotes extends MyPanel {
 			+ "- Added two intro pages with basic animation.\n"
 			+ "- Added help, credits, release notes and donate page.\n"};
 
+	/** The text. */
 	private static MyLabel text;
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		
 		Image image1 = new Image("images/background1.png");

@@ -46,14 +46,26 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 import nl.plaatsoft.redsquare.tools.Score;
 import nl.plaatsoft.redsquare.tools.ScoreGlobal;
 
+/**
+ * The Class HighScore2.
+ */
 public class HighScore2 extends MyPanel {
 		   
+	/** The Constant formatter. */
 	private final static SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
 	
+	/** The y. */
 	private int y;
+	
+	/** The lines. */
 	private int lines; 
+	
+	/** The task. */
 	private Task<Void> task;
 			
+	/**
+	 * Show table.
+	 */
 	private void showTable() {
 		
 		y=80;
@@ -83,6 +95,9 @@ public class HighScore2 extends MyPanel {
 		}
 	}
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		Image image1 = new Image("images/background1.png");
     	BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);

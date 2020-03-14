@@ -24,19 +24,36 @@ package nl.plaatsoft.redsquare.tools;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * The Class ScoreGlobal.
+ */
 public class ScoreGlobal {
 
+	/** The list. */
 	private static ArrayList<Score> list = new ArrayList<Score>();
 		
+	/**
+	 * Adds the score.
+	 *
+	 * @param score the score
+	 */
 	public static void addScore(Score score) {
 		list.add(score);
 	}
 		
+	/**
+	 * Gets the score.
+	 *
+	 * @return the score
+	 */
 	public static ArrayList<Score> getScore() {
 		
 		return list;
 	}
 	
+	/**
+	 * Clear.
+	 */
 	public static void clear() {
 		
 		Iterator<Score> iter = list.iterator();    	

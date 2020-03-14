@@ -24,10 +24,17 @@ package nl.plaatsoft.redsquare.tools;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * The Class MyMusic.
+ */
 public class MyMusic {
 
+	/** The mp. */
 	static MediaPlayer mp;
 	
+	/**
+	 * Play.
+	 */
 	public static void play() {
 		String path = MyMusic.class.getResource("/music/music.mp3").toExternalForm();
         Media media = new Media(path);

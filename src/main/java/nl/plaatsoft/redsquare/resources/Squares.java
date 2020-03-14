@@ -26,8 +26,18 @@ import java.util.Base64;
 
 import javafx.scene.image.Image;
 
+/**
+ * The Class Squares.
+ * 
+ * @author wplaat
+ */
 public class Squares {
 	
+	/**
+	 * Gets the blue 1.
+	 *
+	 * @return the blue 1
+	 */
 	public static Image getBlue1() {
 		
 		String image = 
@@ -53,6 +63,11 @@ public class Squares {
 	}
 
 	
+	/**
+	 * Gets the blue 2.
+	 *
+	 * @return the blue 2
+	 */
 	public static Image getBlue2() {
 		
 		String image = 				
@@ -77,6 +92,11 @@ public class Squares {
 	}
 
 	
+	/**
+	 * Gets the blue 3.
+	 *
+	 * @return the blue 3
+	 */
 	public static Image getBlue3() {
 		
 		String image = 		
@@ -100,6 +120,11 @@ public class Squares {
 	}
 	
 	
+	/**
+	 * Gets the blue 4.
+	 *
+	 * @return the blue 4
+	 */
 	public static Image getBlue4() {
 		
 		String image = 	
@@ -121,6 +146,11 @@ public class Squares {
 		return new Image(new ByteArrayInputStream(Base64.getDecoder().decode(image)));
 	}
 	
+	/**
+	 * Gets the red.
+	 *
+	 * @return the red
+	 */
 	public static Image getRed() {
 		
 		String image = 				

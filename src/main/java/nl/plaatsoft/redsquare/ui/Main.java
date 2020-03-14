@@ -32,10 +32,19 @@ import javafx.scene.image.Image;
 import nl.plaatsoft.redsquare.tools.Constants;
 import nl.plaatsoft.redsquare.tools.MyMusic;
 
+/**
+ * The Class Main.
+ */
 public class Main extends Application {
 		
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( Main.class);
 	
+    /**
+     * Start.
+     *
+     * @param primaryStage the primary stage
+     */
     @Override
     public void start(Stage primaryStage) {
     	    	   
@@ -53,6 +62,11 @@ public class Main extends Application {
         MyMusic.play();        
     }
     
+    /**
+     * The main method.
+     *
+     * @param args the arguments
+     */
     public static void main(String[] args) {
 
     	log.info(Constants.APP_NAME+" v"+Constants.APP_VERSION+" start");

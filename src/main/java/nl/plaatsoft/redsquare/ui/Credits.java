@@ -32,8 +32,14 @@ import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+/**
+ * The Class Credits.
+ */
 public class Credits extends MyPanel {
 
+	/**
+	 * Draw.
+	 */
 	@Override
 	public void draw() {
 		

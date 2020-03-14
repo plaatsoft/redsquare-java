@@ -31,8 +31,14 @@ import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+/**
+ * The Class Help.
+ */
 public class Help extends MyPanel {
 
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		Image image1 = new Image("images/background1.png");
     	BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);

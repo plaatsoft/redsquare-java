@@ -21,16 +21,32 @@
 
 package nl.plaatsoft.redsquare.tools;
 
+/**
+ * The Class Constants.
+ */
 public class Constants {
 
+	/** The Constant APP_NAME. */
 	public final static String APP_NAME = "RedSquare";
+	
+	/** The Constant APP_VERSION. */
 	public final static String APP_VERSION = "0.3";
+	
+	/** The Constant APP_BUILD. */
 	public final static String APP_BUILD = "Build (09-11-2016)";
 	
+	/** The Constant APP_WS_NAME. */
 	public final static String APP_WS_NAME = "Java-RedSquare";
+	
+	/** The Constant APP_WS_URL. */
 	public final static String APP_WS_URL = "https://service.plaatsoft.nl";
 	
+	/** The Constant BORDER_SIZE. */
 	public final static int BORDER_SIZE = 35;
+	
+	/** The Constant WIDTH. */
 	public final static int WIDTH = 640;
+	
+	/** The Constant HEIGHT. */
 	public final static int HEIGHT = 480;		
 }

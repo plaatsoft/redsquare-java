@@ -39,12 +39,28 @@ import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+/**
+ * The Class Settings.
+ */
 public class Settings extends MyPanel {
 
+	/** The Constant MAX. */
 	private final static int MAX=8;
+	
+	/** The label. */
 	private Label[] label = new Label[MAX];
+	
+	/** The letters. */
 	private char[] letters = {'-','-','-','-','-','-','-','-'};
 	
+	/**
+	 * Label special.
+	 *
+	 * @param pos the pos
+	 * @param x the x
+	 * @param y the y
+	 * @return the label
+	 */
 	public Label labelSpecial(int pos, int x, int y) {
         			
 		label[pos] = new Label();
@@ -60,6 +76,16 @@ public class Settings extends MyPanel {
 		return label[pos];
 	}	
 	
+	/**
+	 * Button special.
+	 *
+	 * @param pos the pos
+	 * @param x the x
+	 * @param y the y
+	 * @param text the text
+	 * @param up the up
+	 * @return the button
+	 */
 	private Button buttonSpecial(final int pos, int x, int y, String text, final boolean up) {
 	
 		Button button = new Button();
@@ -91,6 +117,9 @@ public class Settings extends MyPanel {
 		return button;
 	}
 		   		  
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		
 		String nickName = CloudUser.getNickname();

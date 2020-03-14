@@ -34,10 +34,23 @@ import nl.plaatsoft.redsquare.tools.Score;
 import nl.plaatsoft.redsquare.tools.ScoreGlobal;
 import nl.plaatsoft.redsquare.tools.ScoreLocal;
 
+/**
+ * The Class CloudScore.
+ * 
+ * @author wplaat
+ */
 public class CloudScore {
 
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( CloudScore.class);
 	
+	/**
+	 * Sets the.
+	 *
+	 * @param product the product
+	 * @param version the version
+	 * @param score the score
+	 */
 	public static void set(String product, String version, Score score) {
 					
 		String parameters;
@@ -54,6 +67,11 @@ public class CloudScore {
 		log.info(result);
 	}
 	
+	/**
+	 * Gets the local.
+	 *
+	 * @return the local
+	 */
 	public static void getLocal() {
 		
 		String parameters;
@@ -86,6 +104,11 @@ public class CloudScore {
 		}
 	}
 	
+	/**
+	 * Gets the global.
+	 *
+	 * @return the global
+	 */
 	public static void getGlobal() {
 		
 		String parameters;

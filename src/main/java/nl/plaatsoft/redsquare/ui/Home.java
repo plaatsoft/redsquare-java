@@ -41,21 +41,44 @@ import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+/**
+ * The Class Home.
+ */
 public class Home extends MyPanel {
 
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( Home.class);
 	
+	/** The blue 1. */
 	private Square blue1;
+	
+	/** The blue 2. */
 	private Square blue2;
+	
+	/** The blue 3. */
 	private Square blue3;
+	
+	/** The blue 4. */
 	private Square blue4;
+	
+	/** The red. */
 	private Square red;
 		
+	/** The timer. */
 	private AnimationTimer timer;
+	
+	/** The label 3. */
 	private MyLabel label3;
+	
+	/** The upgrade. */
 	private String upgrade;
+	
+	/** The task. */
 	private Task<Void> task;
 	
+	/**
+	 * Instantiates a new home.
+	 */
 	Home () {
 		
 		int step = 1;
@@ -123,6 +146,9 @@ public class Home extends MyPanel {
 		};
     }
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {		
 		timer.start();
 		new Thread(task).start();

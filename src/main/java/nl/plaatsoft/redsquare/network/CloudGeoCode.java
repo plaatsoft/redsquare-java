@@ -24,13 +24,25 @@ package nl.plaatsoft.redsquare.network;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
+/**
+ * The Class CloudGeoCode.
+ * 
+ * @author wplaat
+ */
 public class CloudGeoCode {
 
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( CloudScore.class);
 	
+	/** The country. */
 	static private String country;
+	
+	/** The city. */
 	static private String city;
 			
+	/**
+	 * Fetch.
+	 */
 	static private void fetch() {
 		
 		String url = "http://freegeoip.net/json";
@@ -49,6 +61,11 @@ public class CloudGeoCode {
 		}		
 	}
 
+	/**
+	 * Gets the country.
+	 *
+	 * @return the country
+	 */
 	static public String getCountry() {
 		
 		if (country==null) {
@@ -57,6 +74,11 @@ public class CloudGeoCode {
 		return country.toLowerCase();
 	}
 
+	/**
+	 * Gets the city.
+	 *
+	 * @return the city
+	 */
 	static public String getCity() {
 		if (city==null) {
 			fetch();

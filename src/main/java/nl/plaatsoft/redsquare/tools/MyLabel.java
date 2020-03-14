@@ -27,10 +27,24 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.text.TextAlignment;
 
+/**
+ * The Class MyLabel.
+ */
 public class MyLabel extends Label {
 
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( MyLabel.class);
 	
+	/**
+	 * Instantiates a new my label.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param value the value
+	 * @param fontSize the font size
+	 * @param color the color
+	 * @param options the options
+	 */
 	public MyLabel(int x, int y, String value, int fontSize, String color, String options) {
         
 		setText(value);		
@@ -49,6 +63,15 @@ public class MyLabel extends Label {
 		setLayoutY(y);
 	}	
 	
+	/**
+	 * Instantiates a new my label.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param value the value
+	 * @param fontSize the font size
+	 * @param color the color
+	 */
 	public MyLabel(int x, int y, String value, int fontSize, String color) {
 		        
 		setText(value);		
@@ -67,6 +90,14 @@ public class MyLabel extends Label {
 		setLayoutY(y);
 	}	
 	
+	/**
+	 * Instantiates a new my label.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @param value the value
+	 * @param fontSize the font size
+	 */
 	public MyLabel(int x, int y, String value, int fontSize) {
         
 		setText(value);		

@@ -28,39 +28,97 @@ import javafx.scene.input.KeyEvent;
 import nl.plaatsoft.redsquare.tools.Constants;
 import nl.plaatsoft.redsquare.tools.ScoreGlobal;
 
+/**
+ * The Class Navigator.
+ */
 public class Navigator {
 		
+	/** The intro 1. */
 	private static Intro1 intro1;
+	
+	/** The intro 2. */
 	private static Intro2 intro2;
+	
+	/** The home. */
 	private static Home home;
+	
+	/** The game. */
 	private static Game game;	
+	
+	/** The donate. */
 	private static Donate donate;
+	
+	/** The high score 1. */
 	private static HighScore1 highScore1;
+	
+	/** The high score 2. */
 	private static HighScore2 highScore2;
+	
+	/** The credits. */
 	private static Credits credits;	
+	
+	/** The release notes. */
 	private static ReleaseNotes releaseNotes;
+	
+	/** The help. */
 	private static Help help;
+	
+	/** The settings. */
 	private static Settings settings;	
 	
+	/** The scene. */
 	private static Scene scene;	
 			
+	/** The Constant INTRO1. */
 	public static final int INTRO1 = 1;
+	
+	/** The Constant INTRO2. */
 	public static final int INTRO2 = 2;
+	
+	/** The Constant HOME. */
 	public static final int HOME = 3;
+	
+	/** The Constant GAME. */
 	public static final int GAME = 4;
+	
+	/** The Constant DONATE. */
 	public static final int DONATE = 5;
+	
+	/** The Constant LOCAL_HIGHSCORE. */
 	public static final int LOCAL_HIGHSCORE = 6;
+	
+	/** The Constant GLOBAL_HIGHSCORE. */
 	public static final int GLOBAL_HIGHSCORE = 7;
+	
+	/** The Constant CREDITS. */
 	public static final int CREDITS = 8;
+	
+	/** The Constant RELEASE_NOTES. */
 	public static final int RELEASE_NOTES = 9;
+	
+	/** The Constant HELP. */
 	public static final int HELP = 10;
+	
+	/** The Constant SETTINGS. */
 	public static final int SETTINGS = 11;
+	
+	/** The Constant EXIT. */
 	public static final int EXIT = 12;
 			
+	/**
+	 * Gets the scene.
+	 *
+	 * @return the scene
+	 */
 	public static Scene getScene() {
 		return scene;
 	}
 	
+	/**
+	 * Go.
+	 *
+	 * @param page the page
+	 */
 	public static void go(int page) {
 				
 		switch (page ) {

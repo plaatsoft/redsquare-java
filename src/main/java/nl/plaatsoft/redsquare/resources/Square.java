@@ -28,19 +28,46 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
 import nl.plaatsoft.redsquare.tools.Constants;
 
+/**
+ * The Class Square.
+ * 
+ * @author wplaat
+ */
 public class Square extends ImageView{
 	
+	/** The Constant log. */
 	final static Logger log = Logger.getLogger( Square.class);
 	
+	/** The direction horizontal. */
 	private int directionHorizontal;
+	
+	/** The direction vertical. */
 	private int directionVertical;
+	
+	/** The x. */
 	private double x;
+	
+	/** The y. */
 	private double y;
+	
+	/** The width. */
 	private double width;
+	
+	/** The height. */
 	private double height;
+	
+	/** The step. */
 	private int step;
+	
+	/** The sound. */
 	private boolean sound;
 	
+	/**
+	 * Sets the position.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 */
 	public void setPosition(double x, double y) {
 		
 		this.x=x;
@@ -50,6 +77,17 @@ public class Square extends ImageView{
 		setLayoutY(y);
 	}
 	
+	/**
+	 * Instantiates a new square.
+	 *
+	 * @param image the image
+	 * @param x the x
+	 * @param y the y
+	 * @param dirHor the dir hor
+	 * @param dirVer the dir ver
+	 * @param step the step
+	 * @param sound the sound
+	 */
 	public Square(Image image ,int x, int y, int dirHor, int dirVer, int step, boolean sound) {
 
 		setImage(image);
@@ -66,6 +104,9 @@ public class Square extends ImageView{
 		setLayoutY(y);
 	}
 		
+	/**
+	 * Collision sound.
+	 */
 	private void collisionSound() {
 		
 		if (sound) {	
@@ -74,6 +115,9 @@ public class Square extends ImageView{
 		}
 	}
 	
+	/**
+	 * Move.
+	 */
 	public void move() {
 			
 		if (directionHorizontal==1) {
@@ -112,6 +156,12 @@ public class Square extends ImageView{
 		setLayoutY(y);
 	}	
 	
+	/**
+	 * Collision.
+	 *
+	 * @param red the red
+	 * @return true, if successful
+	 */
 	public boolean collision(Square red) {
 		
 	    boolean collision=false;
@@ -123,26 +173,56 @@ public class Square extends ImageView{
 	    return collision;
 	}	
 	
+	/**
+	 * Gets the step.
+	 *
+	 * @return the step
+	 */
 	public int getStep() {
 		return step;
 	}
 
+	/**
+	 * Sets the step.
+	 *
+	 * @param step the new step
+	 */
 	public void setStep(int step) {
 		this.step = step;
 	}
 	
+	/**
+	 * Gets the pos X.
+	 *
+	 * @return the pos X
+	 */
 	public int getPosX() {		
 		return (int) x;
 	}
 	
+	/**
+	 * Gets the pos Y.
+	 *
+	 * @return the pos Y
+	 */
 	public int getPosY() {		
 		return (int) y;
 	}
 	
+	/**
+	 * Gets the width.
+	 *
+	 * @return the width
+	 */
 	public int getWidth() {		
 		return (int) width;
 	}
 	
+	/**
+	 * Gets the height.
+	 *
+	 * @return the height
+	 */
 	public int getHeight() {		
 		return (int) height;		
 	}

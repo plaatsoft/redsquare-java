@@ -25,10 +25,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
+/**
+ * The Class ScoreLocal.
+ */
 public class ScoreLocal {
 
+	/** The list. */
 	private static ArrayList<Score> list = new ArrayList<Score>();
 		
+	/**
+	 * Adds the score.
+	 *
+	 * @param score the score
+	 * @return the int
+	 */
 	public static int addScore(Score score) {
 		list.add(score);
 		
@@ -47,11 +57,19 @@ public class ScoreLocal {
 		return count;
 	}
 	
+	/**
+	 * Sort.
+	 */
 	private static void sort() {
         ScoreSort comparator = new ScoreSort();
         Collections.sort(list, comparator);
 	}
 	
+	/**
+	 * Gets the score.
+	 *
+	 * @return the score
+	 */
 	public static ArrayList<Score> getScore() {
 		
 		sort();

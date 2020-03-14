@@ -38,10 +38,17 @@ import nl.plaatsoft.redsquare.tools.MyImageView;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+/**
+ * The Class Intro1.
+ */
 public class Intro1 extends MyPanel {
 
+	/** The image view 1. */
 	private MyImageView imageView1;
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {		
 				
 		Image image1 = new Image("images/background1.png");

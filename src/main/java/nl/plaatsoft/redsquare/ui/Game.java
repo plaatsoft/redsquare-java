@@ -55,35 +55,82 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 import nl.plaatsoft.redsquare.tools.Score;
 import nl.plaatsoft.redsquare.tools.ScoreLocal;
 
+/**
+ * The Class Game.
+ */
 public class Game extends MyPanel {
 
+	/** The Constant formatter. */
 	private final static SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
 	
+	/** The blue 1. */
 	private Square blue1;
+	
+	/** The blue 2. */
 	private Square blue2;
+	
+	/** The blue 3. */
 	private Square blue3;
+	
+	/** The blue 4. */
 	private Square blue4;
+	
+	/** The red. */
 	private Square red;	
 		
+	/** The label 1. */
 	private MyLabel label1;
+	
+	/** The label 2. */
 	private MyLabel label2;
+	
+	/** The label 3. */
 	private MyLabel label3;
+	
+	/** The list. */
 	private ArrayList<MyImageView> list = new ArrayList<MyImageView>();
 
+	/** The timer 1. */
 	private AnimationTimer timer1;	
+	
+	/** The timer 2. */
 	private AnimationTimer timer2;
+	
+	/** The points. */
 	private int points;
+	
+	/** The level. */
 	private int level;
+	
+	/** The go. */
 	private boolean go = true; 
+	
+	/** The starttime. */
 	private Date starttime;
+	
+	/** The leveltime. */
 	private Date leveltime; 
+	
+	/** The offset X. */
 	private double offsetX=0;
+	
+	/** The offset Y. */
 	private double offsetY=0;
+	
+	/** The border size. */
 	private int borderSize=Constants.BORDER_SIZE;
 	
+	/** The task 1. */
 	private Task<Void> task1;
+	
+	/** The score. */
 	private Score score;
 
+	/**
+	 * Collision detection.
+	 *
+	 * @return true, if successful
+	 */
 	private boolean collisionDetection() {
 		
 	    if (red.getLayoutX()<borderSize) {
@@ -122,6 +169,9 @@ public class Game extends MyPanel {
 	}
 	
 		
+	/**
+	 * Game over.
+	 */
 	private void gameOver() {
 		
  	   go = false; 
@@ -172,6 +222,9 @@ public class Game extends MyPanel {
 	   new Thread(task1).start();
 	}
 	
+	/**
+	 * Instantiates a new game.
+	 */
 	Game() {
 							
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -292,6 +345,9 @@ public class Game extends MyPanel {
 	   };	        	   
 	}
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		
 		starttime = new Date();
