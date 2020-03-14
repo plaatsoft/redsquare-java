@@ -1,24 +1,3 @@
-/**
- *  @file
- *  @brief 
- *  @author wplaat
- *
- *  Copyright (C) 2008-2016 PlaatSoft
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, version 3.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
-
 package nl.plaatsoft.redsquare.ui;
 
 import javafx.application.Platform;
@@ -30,42 +9,14 @@ import nl.plaatsoft.redsquare.tools.ScoreGlobal;
 
 /**
  * The Class Navigator.
+ * 
+ * @author wplaat
  */
 public class Navigator {
 		
-	/** The intro 1. */
-	private static Intro1 intro1;
-	
-	/** The intro 2. */
-	private static Intro2 intro2;
-	
 	/** The home. */
 	private static Home home;
-	
-	/** The game. */
-	private static Game game;	
-	
-	/** The donate. */
-	private static Donate donate;
-	
-	/** The high score 1. */
-	private static HighScore1 highScore1;
-	
-	/** The high score 2. */
-	private static HighScore2 highScore2;
-	
-	/** The credits. */
-	private static Credits credits;	
-	
-	/** The release notes. */
-	private static ReleaseNotes releaseNotes;
-	
-	/** The help. */
-	private static Help help;
-	
-	/** The settings. */
-	private static Settings settings;	
-	
+
 	/** The scene. */
 	private static Scene scene;	
 			
@@ -124,7 +75,7 @@ public class Navigator {
 		switch (page ) {
 		
 			case INTRO1:
-				intro1 = new Intro1();
+				Intro1 intro1 = new Intro1();
 				intro1.draw();
 				scene = new Scene(intro1, Constants.WIDTH, Constants.HEIGHT);	
 				scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -135,7 +86,7 @@ public class Navigator {
 				break;
 			
 			case INTRO2:
-				intro2 = new Intro2();				
+				Intro2 intro2 = new Intro2();				
 				intro2.draw();
 				scene.setRoot(intro2);
 				scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -145,6 +96,7 @@ public class Navigator {
 				});		
 				break;		
 				
+			default:
 			case HOME:
 				if (home==null) {
 					home = new Home();
@@ -159,7 +111,7 @@ public class Navigator {
 				break;		
 		
 			case GAME:
-				game = new Game();
+				Game game = new Game();
 				game.draw();		
 				scene.setRoot(game);					
 				break;		
@@ -167,44 +119,44 @@ public class Navigator {
 			case LOCAL_HIGHSCORE:
 				ScoreGlobal.clear();
 				
-				highScore1 = new HighScore1();
+				HighScore1 highScore1 = new HighScore1();
 				highScore1.draw();
 				
 				scene.setRoot(highScore1);
 				break;
 				
 			case GLOBAL_HIGHSCORE:
-				highScore2 = new HighScore2();
+				HighScore2 highScore2 = new HighScore2();
 				scene.setRoot(highScore2);
 				highScore2.draw();
 				break;		
 				
 			case DONATE:
-				donate = new Donate();
+				Donate donate = new Donate();
 				scene.setRoot(donate);
 				donate.draw();
 				break;
 								
 			case CREDITS:
-				credits = new Credits();
+				Credits credits = new Credits();
 				credits.draw();
 				scene.setRoot(credits);
 				break;	
 				
 			case RELEASE_NOTES:
-				releaseNotes = new ReleaseNotes();
+				ReleaseNotes releaseNotes = new ReleaseNotes();
 				releaseNotes.draw();
 				scene.setRoot(releaseNotes);				
 				break;		
 				
 			case SETTINGS:
-				settings = new Settings();
+				Settings settings = new Settings();
 				settings.draw();
 				scene.setRoot(settings);			
 				break;	
 				
 			case HELP:
-				help = new Help();
+				Help help = new Help();
 				help.draw();
 				scene.setRoot(help);			
 				break;	

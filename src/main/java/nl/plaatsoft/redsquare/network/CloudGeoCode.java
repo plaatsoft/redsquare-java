@@ -1,24 +1,3 @@
-/**
- *  @file
- *  @brief 
- *  @author wplaat
- *
- *  Copyright (C) 2008-2016 PlaatSoft
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, version 3.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
-
 package nl.plaatsoft.redsquare.network;
 
 import org.apache.log4j.Logger;
@@ -32,18 +11,18 @@ import org.json.JSONObject;
 public class CloudGeoCode {
 
 	/** The Constant log. */
-	final static Logger log = Logger.getLogger( CloudScore.class);
+	private static final  Logger log = Logger.getLogger( CloudGeoCode.class);
 	
 	/** The country. */
-	static private String country;
+	private static String country;
 	
 	/** The city. */
-	static private String city;
+	private static String city;
 			
 	/**
 	 * Fetch.
 	 */
-	static private void fetch() {
+	private static void fetch() {
 		
 		String url = "http://freegeoip.net/json";
 			
@@ -66,7 +45,7 @@ public class CloudGeoCode {
 	 *
 	 * @return the country
 	 */
-	static public String getCountry() {
+	public static String getCountry() {
 		
 		if (country==null) {
 			fetch();
@@ -79,7 +58,7 @@ public class CloudGeoCode {
 	 *
 	 * @return the city
 	 */
-	static public String getCity() {
+	public static String getCity() {
 		if (city==null) {
 			fetch();
 		}

@@ -57,6 +57,8 @@ import nl.plaatsoft.redsquare.tools.ScoreLocal;
 
 /**
  * The Class Game.
+ * 
+ * @author wplaat
  */
 public class Game extends MyPanel {
 
@@ -338,7 +340,7 @@ public class Game extends MyPanel {
 	    	   /* Rotate stars on screen */
 	    	   Iterator<MyImageView> iter = list.iterator();    	
 	   		   while (iter.hasNext()) {
-	   			   MyImageView image = (MyImageView) iter.next();
+	   			   MyImageView image = iter.next();
 	   			   image.setRotate(rotate++);
 	   		   }
 	       }

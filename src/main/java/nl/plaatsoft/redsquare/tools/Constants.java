@@ -23,30 +23,39 @@ package nl.plaatsoft.redsquare.tools;
 
 /**
  * The Class Constants.
+ * 
+ * @author wplaat
  */
 public class Constants {
 
+	/**
+	 * Instantiates a new constants.
+	 */
+	private Constants() {
+	    throw new IllegalStateException("Constants class");
+    }
+		
 	/** The Constant APP_NAME. */
-	public final static String APP_NAME = "RedSquare";
+	public static final String APP_NAME = "RedSquare";
 	
 	/** The Constant APP_VERSION. */
-	public final static String APP_VERSION = "0.3";
+	public static final String APP_VERSION = "0.3";
 	
 	/** The Constant APP_BUILD. */
-	public final static String APP_BUILD = "Build (09-11-2016)";
+	public static final String APP_BUILD = "Build (09-11-2016)";
 	
 	/** The Constant APP_WS_NAME. */
-	public final static String APP_WS_NAME = "Java-RedSquare";
+	public static final String APP_WS_NAME = "Java-RedSquare";
 	
 	/** The Constant APP_WS_URL. */
-	public final static String APP_WS_URL = "https://service.plaatsoft.nl";
+	public static final String APP_WS_URL = "https://service.plaatsoft.nl";
 	
 	/** The Constant BORDER_SIZE. */
-	public final static int BORDER_SIZE = 35;
+	public static final int BORDER_SIZE = 35;
 	
 	/** The Constant WIDTH. */
-	public final static int WIDTH = 640;
+	public static final int WIDTH = 640;
 	
 	/** The Constant HEIGHT. */
-	public final static int HEIGHT = 480;		
+	public static final int HEIGHT = 480;		
 }

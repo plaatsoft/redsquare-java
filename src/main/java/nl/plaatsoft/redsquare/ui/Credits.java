@@ -34,6 +34,8 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 
 /**
  * The Class Credits.
+ * 
+ * @author wplaat
  */
 public class Credits extends MyPanel {
 

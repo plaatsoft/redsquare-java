@@ -34,6 +34,8 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 
 /**
  * The Class Donate.
+ * 
+ * @author wplaat
  */
 public class Donate extends MyPanel {
 
