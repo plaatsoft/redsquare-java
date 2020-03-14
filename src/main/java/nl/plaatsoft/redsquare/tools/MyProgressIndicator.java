@@ -8,13 +8,6 @@ import javafx.scene.control.ProgressIndicator;
  * @author wplaat
  */
 public class MyProgressIndicator extends ProgressIndicator {
-
-	/**
-	 * Instantiates a new my progress indicator.
-	 */
-	private MyProgressIndicator() {
-	    throw new IllegalStateException("MyProgressIndicator class");
-    }
 	
 	/**
 	 * Instantiates a new my progress indicator.
