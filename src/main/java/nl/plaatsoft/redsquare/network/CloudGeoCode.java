@@ -20,22 +20,33 @@ public class CloudGeoCode {
 	
 	/** The city. */
 	private static String city;
+	
+	/** The ip. */
+	private static String ip;
 			
+	/**
+	 * Instantiates a new cloud geo code.
+	 */
+	private CloudGeoCode() {
+	    throw new IllegalStateException("CloudGeoCode class");
+    }
+	
 	/**
 	 * Fetch.
 	 */
 	private static void fetch() {
 		
-		String url = "http://freegeoip.net/json";
+		String url = "https://freegeoip.live/json";
 			
-		log.info(url);		
+		log.info("TX: {}", url);		
 		String json = CloudUtils.executeGet(url);
-		log.info(json);
+		log.info("RX: {}", json);
 		
 		try {
 			JSONObject obj = new JSONObject(json);
 			country = obj.getString("country_code");
 			city = obj.getString("city");
+			ip = obj.getString("ip");
 				
 		} catch (Exception e) {
 			log.error(e.getMessage());
@@ -65,5 +76,17 @@ public class CloudGeoCode {
 			fetch();
 		}
 		return city.toLowerCase();
+	}
+	
+	/**
+	 * Gets the ip.
+	 *
+	 * @return the ip
+	 */
+	public static String getIp() {
+		if (ip==null) {
+			fetch();
+		}
+		return ip;
 	}
 }

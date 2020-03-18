@@ -24,20 +24,28 @@ public class CloudUser {
 	private static String nickName = System.getProperty("user.name");
 	
 	/**
+	 * Instantiates a new cloud user.
+	 */
+	private CloudUser() {
+	    throw new IllegalStateException("CloudUser class");
+    }
+	
+	/**
 	 * Gets the.
 	 */
 	public static void get() {
 
 		String parameters = "action=getUser"+
+				"&ip=" +  CloudGeoCode.getIp() +
 				"&username=" + System.getProperty("user.name") +
 				"&nickname=" + nickName +
 				"&country=" +  CloudGeoCode.getCountry() +
 				"&city=" +  CloudGeoCode.getCity();
 						
-		log.info(Constants.APP_WS_URL+ " "+parameters);
+		log.info("TX: {}?{}", Constants.APP_WS_URL, parameters);
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(json);
-		
+		log.info("RX: {}", json);
+					
 		try {
 			JSONObject obj = new JSONObject(json);
 			uid = obj.getInt("uid");
@@ -56,12 +64,13 @@ public class CloudUser {
 	public static void set(String newNickName) {
 
 		String parameters = "action=setUser"+
+				"&ip=" +  CloudGeoCode.getIp() +
 				"&username=" + System.getProperty("user.name") +
 				"&nickname=" + newNickName;
 						
-		log.info(Constants.APP_WS_URL+ " "+parameters);
+		log.info("TX: {}?{}", Constants.APP_WS_URL, parameters);
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(json);
+		log.info("RX: {}", json);
 		
 		try {
 			JSONObject obj = new JSONObject(json);

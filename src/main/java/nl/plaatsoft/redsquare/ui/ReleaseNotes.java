@@ -25,10 +25,12 @@ public class ReleaseNotes extends MyPanel {
 	/** The version. */
 	private static String[] version = {
 						
-			"14-03-2020 (Version 0.4.0)\n"		  	
+			"18-03-2020 (Version 0.4.0)\n"		  	
 			+ "- Move project to GitHub.\n"
 			+ "- Added JavaDoc.\n"
 			+ "- Update Log4J2 framework.\n"
+			+ "- Update URL GeoCode WebService.\n"
+			+ "- Update WebService process logic.\n"
 			+ "- Remove Sonar warnings.\n",
 				  	
 			"09-11-2016 (Version 0.3.0)\n"		  	

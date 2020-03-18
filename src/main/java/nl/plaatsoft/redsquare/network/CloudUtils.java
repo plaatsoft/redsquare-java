@@ -21,6 +21,13 @@ public class CloudUtils {
 
 	/** The Constant log. */
 	private static final Logger log = LogManager.getLogger( CloudUtils.class);
+		
+	/**
+	 * Instantiates a new cloud utils.
+	 */
+	private CloudUtils() {
+	    throw new IllegalStateException("CloudUtils class");
+    }
 	
 	/**
 	 * Execute get.
@@ -73,7 +80,7 @@ public class CloudUtils {
 		HttpURLConnection connection = null;
 
 		try {
-			URL url = new URL(targetURL);
+			URL url = new URL(targetURL+"?"+urlParameters);
 			connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod("POST");
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");

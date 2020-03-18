@@ -26,6 +26,13 @@ public class CloudScore {
 	private static final Logger log = LogManager.getLogger( CloudScore.class);
 	
 	/**
+	 * Instantiates a new cloud score.
+	 */
+	private CloudScore() {
+	    throw new IllegalStateException("CloudScore class");
+    }
+	
+	/**
 	 * Sets the.
 	 *
 	 * @param product the product
@@ -42,10 +49,10 @@ public class CloudScore {
 		parameters += "dt=" + (score.getTimestamp().getTime()/1000) + "&";
 		parameters += "score=" + score.getScore() + "&";
 		parameters += "level=" + score.getLevel();
-		
-		log.info(Constants.APP_WS_URL+ " "+parameters);
-		String result = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(result);
+				
+		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("RX: {}", json);
 	}
 	
 	/**
@@ -60,23 +67,23 @@ public class CloudScore {
 		parameters += "pid=" + CloudProduct.getPid() + "&";
 		parameters += "uid=" + CloudUser.getUid();
 		
-		log.info(Constants.APP_WS_URL+ " "+parameters);
+		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(json);
+		log.info("RX: {}", json);
 		
 		try {
 			JSONArray jsonarray = new JSONArray(json);
 			for (int i = 0; i < jsonarray.length(); i++) {
 			    JSONObject jsonobject = jsonarray.getJSONObject(i);
-			    String dt = jsonobject.getString("dt");
+			    long dt = (jsonobject.getLong("dt")*1000);
 			    int points = jsonobject.getInt("score");
 			    int level = jsonobject.getInt("level");
 			    String nickname = "";
 			    String country = "";
 			    
-			    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			    Date date = df.parse(dt);
-			    
+			    Date date = new Date();
+			    date.setTime(dt);
+			    			    			    
 				Score score = new Score(date, points, level, nickname, country);
 			  	ScoreLocal.addScore(score);  	   
 			}			
@@ -96,22 +103,22 @@ public class CloudScore {
 		parameters  = "action=getGlobalScore&";
 		parameters += "pid=" + CloudProduct.getPid();
 		
-		log.info(Constants.APP_WS_URL+ " "+parameters);
+		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(json);
+		log.info("RX: {}", json);
 						
 		try {
 			JSONArray jsonarray = new JSONArray(json);
 			for (int i = 0; i < jsonarray.length(); i++) {
 			    JSONObject jsonobject = jsonarray.getJSONObject(i);
-			    String dt = jsonobject.getString("dt");
+			    long dt = jsonobject.getLong("dt");
 			    int points = jsonobject.getInt("score");
 			    int level = jsonobject.getInt("level");
 			    String nickname = jsonobject.getString("nickname");
 			    String country = jsonobject.getString("country");
 			    			    
-			    DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			    Date date = df.parse(dt);
+			    Date date = new Date();
+			    date.setTime(dt);
 			    
 				Score score = new Score(date, points, level, nickname, country);
 			  	ScoreGlobal.addScore(score);  	   

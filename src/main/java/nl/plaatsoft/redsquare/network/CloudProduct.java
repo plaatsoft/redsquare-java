@@ -21,6 +21,13 @@ public class CloudProduct {
 	private static int pid=0;
 	
 	/**
+	 * Instantiates a new cloud product.
+	 */
+	private CloudProduct() {
+	    throw new IllegalStateException("CloudProduct class");
+    }
+	
+	/**
 	 * Fetch.
 	 */
 	public static void fetch() {
@@ -30,9 +37,9 @@ public class CloudProduct {
 				"&version=" + Constants.APP_VERSION+
 				"&os="+System.getProperty("os.name").replaceAll(" ","");
 						
-		log.info("{} {}",Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(json);
+		log.info("RX: {}", json);
 		
 		try {
 			JSONObject obj = new JSONObject(json);

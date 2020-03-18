@@ -16,7 +16,14 @@ public class CloudNewVersion {
 	
 	/** The Constant log. */
 	private static final Logger log = LogManager.getLogger( CloudNewVersion.class);
-		
+			
+	/**
+	 * Instantiates a new cloud new version.
+	 */
+	private CloudNewVersion() {
+	    throw new IllegalStateException("CloudNewVersion class");
+    }
+	
 	/**
 	 * Gets the.
 	 *
@@ -27,14 +34,14 @@ public class CloudNewVersion {
 		String returnValue="";		
 		String parameters = "action=getVersion&product="+Constants.APP_WS_NAME; 
 						
-		log.info(Constants.APP_WS_URL+ " "+parameters);
+		log.info("TX: {}?{}", Constants.APP_WS_URL, parameters);		
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
-		log.info(json);
+		log.info("RX: {}", json);
 		
 		try {
 			JSONObject obj = new JSONObject(json);
-			String newVersion = obj.getString("product");
-			if (Float.parseFloat(newVersion)>Float.parseFloat(Constants.APP_VERSION)) {
+			String newVersion = obj.getString("version");
+			if (newVersion.compareTo(Constants.APP_VERSION)>0) {
 				returnValue = Constants.APP_NAME+" v"+newVersion+" available.";
 			}
 			
