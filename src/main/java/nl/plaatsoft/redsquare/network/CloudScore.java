@@ -111,11 +111,13 @@ public class CloudScore {
 			JSONArray jsonarray = new JSONArray(json);
 			for (int i = 0; i < jsonarray.length(); i++) {
 			    JSONObject jsonobject = jsonarray.getJSONObject(i);
-			    long dt = jsonobject.getLong("dt");
+			    long dt = jsonobject.getLong("dt")*1000;
 			    int points = jsonobject.getInt("score");
 			    int level = jsonobject.getInt("level");
-			    String nickname = jsonobject.getString("nickname");
-			    String country = jsonobject.getString("country");
+			    
+			    JSONObject object2 = jsonobject.getJSONObject("user");		    
+			    String nickname = object2.getString("nickname");
+			    String country = object2.getString("country");
 			    			    
 			    Date date = new Date();
 			    date.setTime(dt);
