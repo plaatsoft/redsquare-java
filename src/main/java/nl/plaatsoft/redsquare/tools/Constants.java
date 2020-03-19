@@ -27,8 +27,8 @@ public class Constants {
 	public static final String APP_WS_NAME = "Java-RedSquare";
 	
 	/** The Constant APP_WS_URL. */
-	//public static final String APP_WS_URL = "https://service.plaatsoft.nl";
-	public static final String APP_WS_URL = "http://127.0.0.1:8083";
+	public static final String APP_WS_URL = "https://service.plaatsoft.nl";
+	//public static final String APP_WS_URL = "http://127.0.0.1:8083";
 	
 	/** The Constant BORDER_SIZE. */
 	public static final int BORDER_SIZE = 35;
