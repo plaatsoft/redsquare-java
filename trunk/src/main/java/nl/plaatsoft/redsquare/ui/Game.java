@@ -63,7 +63,7 @@ import nl.plaatsoft.redsquare.tools.ScoreLocal;
 public class Game extends MyPanel {
 
 	/** The Constant formatter. */
-	private final static SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+	private static final SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
 	
 	/** The blue 1. */
 	private Square blue1;

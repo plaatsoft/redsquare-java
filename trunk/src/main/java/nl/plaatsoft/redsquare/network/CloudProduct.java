@@ -35,7 +35,7 @@ public class CloudProduct {
 		String parameters = "action=getProduct"+
 				"&product=" + Constants.APP_WS_NAME+
 				"&version=" + Constants.APP_VERSION+
-				"&os="+System.getProperty("os.name").replaceAll(" ","");
+				"&os="+System.getProperty("os.name").replace(" ","");
 						
 		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
 		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
