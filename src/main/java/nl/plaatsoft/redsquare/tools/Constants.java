@@ -21,14 +21,13 @@ public class Constants {
 	public static final String APP_VERSION = "0.4.0";
 	
 	/** The Constant APP_BUILD. */
-	public static final String APP_BUILD = "Build (14-03-2020)";
+	public static final String APP_BUILD = "Build (18-03-2020)";
 	
 	/** The Constant APP_WS_NAME. */
 	public static final String APP_WS_NAME = "Java-RedSquare";
 	
 	/** The Constant APP_WS_URL. */
 	public static final String APP_WS_URL = "https://service.plaatsoft.nl";
-	//public static final String APP_WS_URL = "http://127.0.0.1:8083";
 	
 	/** The Constant BORDER_SIZE. */
 	public static final int BORDER_SIZE = 35;
