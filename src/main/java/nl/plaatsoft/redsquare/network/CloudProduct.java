@@ -7,29 +7,16 @@ import org.json.JSONObject;
 
 import nl.plaatsoft.redsquare.tools.Constants;
 
-/**
- * The Class CloudProduct.
- * 
- * @author wplaat
- */
 public class CloudProduct {
 
-	/** The Constant log. */
 	private static final Logger log = LogManager.getLogger( CloudProduct.class);
 	
-	/** The pid. */
 	private static int pid=0;
-	
-	/**
-	 * Instantiates a new cloud product.
-	 */
+
 	private CloudProduct() {
 	    throw new IllegalStateException("CloudProduct class");
     }
 	
-	/**
-	 * Fetch.
-	 */
 	public static void fetch() {
 
 		String parameters = "action=getProduct"+
@@ -49,11 +36,6 @@ public class CloudProduct {
 		}
 	}
 	
-	/**
-	 * Gets the pid.
-	 *
-	 * @return the pid
-	 */
 	public static int getPid() {
 		if (pid==0) {
 			fetch();

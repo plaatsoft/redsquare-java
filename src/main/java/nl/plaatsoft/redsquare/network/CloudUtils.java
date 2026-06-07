@@ -12,29 +12,14 @@ import org.apache.logging.log4j.Logger;
 
 import nl.plaatsoft.redsquare.tools.Constants;
 
-/**
- * The Class CloudUtils.
- * 
- * @author wplaat
- */
 public class CloudUtils {
 
-	/** The Constant log. */
 	private static final Logger log = LogManager.getLogger( CloudUtils.class);
-		
-	/**
-	 * Instantiates a new cloud utils.
-	 */
+
 	private CloudUtils() {
 	    throw new IllegalStateException("CloudUtils class");
     }
 	
-	/**
-	 * Execute get.
-	 *
-	 * @param targetURL the target URL
-	 * @return the string
-	 */
 	public static String executeGet(String targetURL) {
 
 		HttpURLConnection con=null;
@@ -67,13 +52,6 @@ public class CloudUtils {
 		}		
 	}
 	
-	/**
-	 * Execute post.
-	 *
-	 * @param targetURL the target URL
-	 * @param urlParameters the url parameters
-	 * @return the string
-	 */
 	public static String executePost(String targetURL, String urlParameters) {
 		
 		String text="";

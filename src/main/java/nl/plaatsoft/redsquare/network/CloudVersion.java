@@ -7,28 +7,14 @@ import org.json.JSONObject;
 
 import nl.plaatsoft.redsquare.tools.Constants;
 
-/**
- * The Class CloudNewVersion.
- * 
- * @author wplaat
- */
-public class CloudNewVersion {
+public class CloudVersion {
 	
-	/** The Constant log. */
-	private static final Logger log = LogManager.getLogger( CloudNewVersion.class);
+	private static final Logger log = LogManager.getLogger( CloudVersion.class);
 			
-	/**
-	 * Instantiates a new cloud new version.
-	 */
-	private CloudNewVersion() {
+	private CloudVersion() {
 	    throw new IllegalStateException("CloudNewVersion class");
     }
 	
-	/**
-	 * Gets the.
-	 *
-	 * @return the string
-	 */
 	public static String get() {
 
 		String returnValue="";		
