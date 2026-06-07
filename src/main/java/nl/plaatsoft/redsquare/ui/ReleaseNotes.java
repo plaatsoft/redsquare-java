@@ -22,41 +22,41 @@ public class ReleaseNotes extends MyPanel {
     "07-06-2025 (Version 1.0.0)\n"
       + "- Fix cloud user call\n"
       + "- Replace maven with Gradle\n"
-      + "- Upgraded OpenFX form 8 to 26\n"
+      + "- Upgraded OpenFX from 8 to 26\n"
       + "- Upgraded Java from 8 to 26\n"
       + "- Upgraded Log4J to 2.26.0\n",
 
     "18-03-2020 (Version 0.4.0)\n"
-      + "- Move project to GitHub.\n"
-      + "- Added JavaDoc.\n"
-      + "- Update Log4J2 framework.\n"
-      + "- Update URL GeoCode WebService.\n"
-      + "- Update WebService process logic.\n"
-      + "- Remove Sonar warnings.\n",
+      + "- Move project to GitHub\n"
+      + "- Added JavaDoc\n"
+      + "- Update Log4J2 framework\n"
+      + "- Update URL GeoCode WebService\n"
+      + "- Update WebService process logic\n"
+      + "- Remove Sonar warnings\n",
 
     "09-11-2016 (Version 0.3.0)\n"
-      + "- Minor GUI update.\n"
-      + "- Obfuscate classes.\n",
+      + "- Minor GUI update\n"
+      + "- Obfuscate classes\n",
 
     "03-11-2016 (Version 0.2.0)\n"
-      + "- Added setting page to control nickname.\n"
-      + "- Protect blue squares against size hacking.\n"
-      + "- Protect red square against size hacking.\n"
-      + "- Added scrollbar to release notes page.\n"
-      + "- Added CGI master hackers to credits page.\n"
-      + "- Improve webservice calls.\n"
-      + "- Check java version. If version is outdated, warn user.\n"
-      + "- Show warning when internet connection is down.\n",
+      + "- Added setting page to control nickname\n"
+      + "- Protect blue squares against size hacking\n"
+      + "- Protect red square against size hacking\n"
+      + "- Added scrollbar to release notes page\n"
+      + "- Added CGI master hackers to credits page\n"
+      + "- Improve webservice calls\n"
+      + "- Check java version. If version is outdated, warn user\n"
+      + "- Show warning when internet connection is down\n",
 
     "30-10-2016 (Version 0.1.0)\n"
-      + "- Added basic sound effects.\n"
-      + "- Added nice background music.\n"
-      + "- Added webservice to store local and global highscore.\n"
-      + "- Added new version check thread to home page.\n"
-      + "- Added page navigator so pages are loaded just in time.\n"
-      + "- Added game page with special effects.\n"
-      + "- Added two intro pages with basic animation.\n"
-      + "- Added help, credits, release notes and donate page.\n"};
+      + "- Added basic sound effects\n"
+      + "- Added nice background music\n"
+      + "- Added webservice to store local and global highscore\n"
+      + "- Added new version check thread to home page\n"
+      + "- Added page navigator so pages are loaded just in time\n"
+      + "- Added game page with special effects\n"
+      + "- Added two intro pages with basic animation\n"
+      + "- Added help, credits, release notes and donate page\n"};
 
   /**
    * The text.
