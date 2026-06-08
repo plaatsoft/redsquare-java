@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ScoreLocal {
 
-  private static ArrayList<Score> list = new ArrayList<Score>();
+  private static final ArrayList<Score> list = new ArrayList<>();
 
   private ScoreLocal() {
     throw new IllegalStateException("ScoreLocal class");
@@ -19,15 +19,12 @@ public class ScoreLocal {
     sort();
 
     int count = 0;
-    Iterator<Score> iter = list.iterator();
-    while (iter.hasNext()) {
+    for (Score value : list) {
       count++;
-      if (score == (Score) iter.next()) {
+      if (score == value) {
         break;
       }
     }
-
-    // Return highscore place
     return count;
   }
 

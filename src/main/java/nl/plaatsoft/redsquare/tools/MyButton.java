@@ -16,10 +16,6 @@ public class MyButton extends Button {
     setLayoutX(x);
     setLayoutY(y);
 
-    setOnAction(new EventHandler<ActionEvent>() {
-      public void handle(ActionEvent event) {
-        Navigator.go(page);
-      }
-    });
+    setOnAction(event -> Navigator.go(page));
   }
 }

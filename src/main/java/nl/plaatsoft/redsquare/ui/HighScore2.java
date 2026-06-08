@@ -33,41 +33,11 @@ public class HighScore2 extends MyPanel {
   private int lines;
   private Task<Void> task;
 
-  private void showTable() {
-
-    y = 80;
-
-    lines = 1;
-    Iterator<Score> iter = ScoreGlobal.getScore().iterator();
-    while (iter.hasNext()) {
-      y += 20;
-
-      Score score = iter.next();
-      getChildren().add(new MyLabel(30, y, "" + lines, 20));
-      getChildren().add(new MyLabel(80, y, formatter.format(score.getTimestamp()), 20));
-      getChildren().add(new MyLabel(300, y, "" + score.getScore(), 20));
-
-      if (score.getCountry().length() > 0) {
-        try {
-          getChildren().add(new MyImageView(397, y + 4, "images/flags/" + score.getCountry() + ".png", 0.7));
-        } catch (Exception e) {
-          // flag filename not found
-        }
-      }
-      getChildren().add(new MyLabel(430, y, "" + score.getNickname(), 20));
-
-      if (++lines > 15) {
-        break;
-      }
-    }
-  }
-
   public void draw() {
     Image image1 = new Image("images/background1.png");
     BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
     BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-    Background background = new Background(backgroundImage);
-    setBackground(background);
+    setBackground(new Background(backgroundImage));
 
     y = 0;
     getChildren().add(new MyLabel(0, y, "Ultimate High Score", 50, "white", "-fx-font-weight: bold;"));
@@ -89,15 +59,36 @@ public class HighScore2 extends MyPanel {
       }
     };
 
-    task.stateProperty().addListener(new ChangeListener<Worker.State>() {
-
-      public void changed(ObservableValue<? extends State> observable, State oldValue, Worker.State newState) {
-        if (newState == Worker.State.SUCCEEDED) {
-          showTable();
-        }
+    task.stateProperty().addListener((observable, oldValue, newState) -> {
+      if (newState == State.SUCCEEDED) {
+        showTable();
       }
     });
 
     new Thread(task).start();
+  }
+
+  private void showTable() {
+    y = 80;
+    lines = 1;
+    for (Score score : ScoreGlobal.getScore()) {
+      y += 20;
+      getChildren().add(new MyLabel(30, y, "" + lines, 20));
+      getChildren().add(new MyLabel(80, y, formatter.format(score.getTimestamp()), 20));
+      getChildren().add(new MyLabel(300, y, "" + score.getScore(), 20));
+
+      if (!score.getCountry().isEmpty()) {
+        try {
+          getChildren().add(new MyImageView(397, y + 4, "images/flags/" + score.getCountry() + ".png", 0.7));
+        } catch (Exception _) {
+          // flag filename not found
+        }
+      }
+      getChildren().add(new MyLabel(430, y, score.getNickname(), 20));
+
+      if (++lines > 15) {
+        break;
+      }
+    }
   }
 }

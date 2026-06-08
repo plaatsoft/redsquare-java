@@ -1,8 +1,8 @@
-package nl.plaatsoft.redsquare.tools;
+package nl.plaatsoft.redsquare.common;
 
-public class Constants {
+public class AppConstants {
 
-	private Constants() {
+	private AppConstants() {
 	    throw new IllegalStateException("Constants class");
     }
 		

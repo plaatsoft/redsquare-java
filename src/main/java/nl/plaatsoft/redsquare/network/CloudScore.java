@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 import nl.plaatsoft.redsquare.tools.Score;
 import nl.plaatsoft.redsquare.tools.ScoreGlobal;
 import nl.plaatsoft.redsquare.tools.ScoreLocal;
@@ -32,8 +32,8 @@ public class CloudScore {
 		parameters += "score=" + score.getScore() + "&";
 		parameters += "level=" + score.getLevel();
 				
-		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
-		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}", AppConstants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(AppConstants.APP_WS_URL, parameters);
 		log.info("RX: {}", json);
 	}
 	
@@ -44,8 +44,8 @@ public class CloudScore {
 		parameters += "pid=" + CloudProduct.getPid() + "&";
 		parameters += "uid=" + CloudUser.getUid();
 		
-		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
-		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}", AppConstants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(AppConstants.APP_WS_URL, parameters);
 		log.info("RX: {}", json);
 		
 		try {
@@ -75,8 +75,8 @@ public class CloudScore {
 		parameters  = "action=getGlobalScore&";
 		parameters += "pid=" + CloudProduct.getPid();
 		
-		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
-		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}", AppConstants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(AppConstants.APP_WS_URL, parameters);
 		log.info("RX: {}", json);
 						
 		try {

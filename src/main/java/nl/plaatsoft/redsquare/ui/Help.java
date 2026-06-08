@@ -16,9 +16,7 @@ public class Help extends MyPanel {
     Image image1 = new Image("images/background1.png");
     BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
     BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-    Background background = new Background(backgroundImage);
-
-    setBackground(background);
+    setBackground(new Background(backgroundImage));
 
     int y = 20;
     getChildren().add(new MyLabel(0, y, "Help", 60, "white", "-fx-font-weight: bold;"));

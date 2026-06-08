@@ -3,7 +3,6 @@ package nl.plaatsoft.redsquare.ui;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.TimeZone;
 
 import javafx.animation.AnimationTimer;
@@ -26,7 +25,7 @@ import nl.plaatsoft.redsquare.network.CloudScore;
 import nl.plaatsoft.redsquare.network.CloudUser;
 import nl.plaatsoft.redsquare.resources.Square;
 import nl.plaatsoft.redsquare.resources.Squares;
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyImageView;
 import nl.plaatsoft.redsquare.tools.MyLabel;
@@ -55,22 +54,17 @@ public class Game extends MyPanel {
   private Date leveltime;
   private double offsetX = 0;
   private double offsetY = 0;
-  private int borderSize = Constants.BORDER_SIZE;
+  private int borderSize = AppConstants.BORDER_SIZE;
   private Task<Void> task1;
   private Score score;
 
-  /**
-   * Collision detection.
-   *
-   * @return true, if successful
-   */
   private boolean collisionDetection() {
 
     if (red.getLayoutX() < borderSize) {
       return true;
     }
 
-    if ((red.getLayoutX() + red.getWidth()) > (Constants.WIDTH - borderSize)) {
+    if ((red.getLayoutX() + red.getWidth()) > (AppConstants.WIDTH - borderSize)) {
 
       return true;
     }
@@ -79,7 +73,7 @@ public class Game extends MyPanel {
       return true;
     }
 
-    if ((red.getLayoutY() + red.getHeight()) > (Constants.HEIGHT - borderSize)) {
+    if ((red.getLayoutY() + red.getHeight()) > (AppConstants.HEIGHT - borderSize)) {
       return true;
     }
 
@@ -133,7 +127,7 @@ public class Game extends MyPanel {
     if (ranking < 6) {
       y = y + 40;
       for (int i = 0; i < (6 - ranking); i++) {
-        int x = (Constants.WIDTH / 2) - ((6 - ranking) * 64) / 2;
+        int x = (AppConstants.WIDTH / 2) - ((6 - ranking) * 64) / 2;
         MyImageView image = new MyImageView(x + (i * 64), y, "images/star.png", 1);
         list.add(image);
         getChildren().add(image);
@@ -144,7 +138,7 @@ public class Game extends MyPanel {
     /* Sent score to cloud server */
     task1 = new Task<Void>() {
       public Void call() {
-        CloudScore.set(Constants.APP_WS_NAME, Constants.APP_VERSION, score);
+        CloudScore.set(AppConstants.APP_WS_NAME, AppConstants.APP_VERSION, score);
         return null;
       }
     };
@@ -165,37 +159,29 @@ public class Game extends MyPanel {
     blue4 = new Square(Squares.getBlue4(), 1, 1, 0, 0, 1, true);
     red = new Square(Squares.getRed(), 300, 300, 0, 0, 0, false);
 
-    red.setOnMousePressed(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent me) {
-        if (go) {
-          offsetX = me.getSceneX() - red.getPosX();
-          offsetY = me.getSceneY() - red.getPosY();
-          getScene().setCursor(Cursor.HAND);
-        }
+    red.setOnMousePressed(me -> {
+      if (go) {
+        offsetX = me.getSceneX() - red.getPosX();
+        offsetY = me.getSceneY() - red.getPosY();
+        getScene().setCursor(Cursor.HAND);
       }
     });
 
-    red.setOnMouseDragged(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent me) {
-        if (go) {
-          red.setPosition(me.getSceneX() - offsetX, me.getSceneY() - offsetY);
-        }
+    red.setOnMouseDragged(me -> {
+      if (go) {
+        red.setPosition(me.getSceneX() - offsetX, me.getSceneY() - offsetY);
       }
     });
 
-    red.setOnMouseReleased(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent me) {
-        getScene().setCursor(Cursor.DEFAULT);
-      }
-    });
+    red.setOnMouseReleased(me -> getScene().setCursor(Cursor.DEFAULT));
 
-    Canvas canvas = new Canvas(Constants.WIDTH - (2 * Constants.BORDER_SIZE), Constants.HEIGHT - (2 * Constants.BORDER_SIZE));
+    Canvas canvas = new Canvas(AppConstants.WIDTH - (2 * AppConstants.BORDER_SIZE), AppConstants.HEIGHT - (2 * AppConstants.BORDER_SIZE));
     GraphicsContext gc = canvas.getGraphicsContext2D();
     gc.setGlobalAlpha(0.4);
     gc.setFill(Color.WHITE);
     gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-    canvas.setLayoutX(Constants.BORDER_SIZE);
-    canvas.setLayoutY(Constants.BORDER_SIZE);
+    canvas.setLayoutX(AppConstants.BORDER_SIZE);
+    canvas.setLayoutY(AppConstants.BORDER_SIZE);
 
     getChildren().add(new MyLabel(10, 5, "Score: ", 18, "white", "-fx-font-weight: bold;"));
     label1 = new MyLabel(70, 5, "" + score, 18);
@@ -217,8 +203,17 @@ public class Game extends MyPanel {
 
     timer1 = new AnimationTimer() {
 
+      private long lastTime = 0;
+      private final double TARGET_FPS = 50.0;
+      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
+
       @Override
       public void handle(long now) {
+
+        if (now - lastTime < TIME_PER_FRAME) {
+          return; // Skip frame to maintain desired speed
+        }
+        lastTime = now;
 
         // Move blue squares
         blue1.move();
@@ -257,13 +252,20 @@ public class Game extends MyPanel {
 
       int rotate = 0;
 
+      private long lastTime = 0;
+      private final double TARGET_FPS = 50.0;
+      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
+
       @Override
       public void handle(long now) {
 
+        if (now - lastTime < TIME_PER_FRAME) {
+          return; // Skip frame to maintain desired speed
+        }
+        lastTime = now;
+
         /* Rotate stars on screen */
-        Iterator<MyImageView> iter = list.iterator();
-        while (iter.hasNext()) {
-          MyImageView image = iter.next();
+        for (MyImageView image : list) {
           image.setRotate(rotate++);
         }
       }
@@ -279,10 +281,10 @@ public class Game extends MyPanel {
     go = true;
 
     blue1.setPosition(1, 1);
-    blue2.setPosition(Constants.WIDTH - blue2.getWidth() - 1, 1);
-    blue3.setPosition(1, Constants.HEIGHT - blue3.getHeight() - 1);
-    blue4.setPosition(Constants.WIDTH - blue4.getWidth() - 1, Constants.HEIGHT - blue4.getHeight() - 1);
-    red.setPosition((Constants.WIDTH / 2) - (red.getWidth() / 2), (Constants.HEIGHT / 2) - (red.getHeight() / 2));
+    blue2.setPosition(AppConstants.WIDTH - blue2.getWidth() - 1, 1);
+    blue3.setPosition(1, AppConstants.HEIGHT - blue3.getHeight() - 1);
+    blue4.setPosition(AppConstants.WIDTH - blue4.getWidth() - 1, AppConstants.HEIGHT - blue4.getHeight() - 1);
+    red.setPosition((AppConstants.WIDTH / 2) - (red.getWidth() / 2), (AppConstants.HEIGHT / 2) - (red.getHeight() / 2));
 
     blue1.setStep(level);
     blue2.setStep(level);

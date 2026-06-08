@@ -21,10 +21,10 @@ repositories {
 dependencies {
 
     // === JavaFX ===
-    implementation("org.openjfx:javafx-controls:26")
-    implementation("org.openjfx:javafx-fxml:26")
-    implementation("org.openjfx:javafx-media:26")
-    implementation("org.openjfx:javafx-graphics:26")
+    implementation("org.openjfx:javafx-controls:25")
+    implementation("org.openjfx:javafx-fxml:25")
+    implementation("org.openjfx:javafx-media:25")
+    implementation("org.openjfx:javafx-graphics:25")
 
     // === JSON ===
     implementation("org.json:json:20250107")
@@ -35,13 +35,13 @@ dependencies {
 }
 
 application {
-    mainClass.set("nl.plaatsoft.redsquare.Main")
+    mainClass.set("nl.plaatsoft.redsquare.AppMain")
 }
 
 // Shadow JAR (recommended for easy distribution)
 tasks.shadowJar {
     archiveBaseName.set("redsquare")
     manifest {
-        attributes["Main-Class"] = "nl.plaatsoft.redsquare.Main"
+        attributes["Main-Class"] = "nl.plaatsoft.redsquare.AppMain"
     }
 }

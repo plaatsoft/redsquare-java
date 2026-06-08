@@ -7,7 +7,6 @@ import javafx.scene.text.TextAlignment;
 public class MyLabel extends Label {
 
   public MyLabel(int x, int y, String value, int fontSize, String color, String options) {
-
     setText(value);
     setWrapText(true);
     setStyle("-fx-font-size:" + fontSize + "px; -fx-text-fill:" + color + "; " + options);
@@ -16,9 +15,7 @@ public class MyLabel extends Label {
       setMinWidth(640);
       setAlignment(Pos.CENTER);
       setTextAlignment(TextAlignment.CENTER);
-
     } else {
-
       setLayoutX(x);
     }
     setLayoutY(y);
@@ -34,9 +31,7 @@ public class MyLabel extends Label {
       setMinWidth(640);
       setAlignment(Pos.CENTER);
       setTextAlignment(TextAlignment.CENTER);
-
     } else {
-
       setLayoutX(x);
     }
     setLayoutY(y);
@@ -52,9 +47,7 @@ public class MyLabel extends Label {
       setMinWidth(640);
       setAlignment(Pos.CENTER);
       setTextAlignment(TextAlignment.CENTER);
-
     } else {
-
       setLayoutX(x);
     }
     setLayoutY(y);

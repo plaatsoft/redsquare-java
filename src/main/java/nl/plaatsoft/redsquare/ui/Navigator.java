@@ -4,7 +4,7 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 import nl.plaatsoft.redsquare.tools.ScoreGlobal;
 
 public class Navigator {
@@ -35,23 +35,15 @@ public class Navigator {
       case INTRO1:
         Intro1 intro1 = new Intro1();
         intro1.draw();
-        scene = new Scene(intro1, Constants.WIDTH, Constants.HEIGHT);
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-          public void handle(KeyEvent key) {
-            Navigator.go(Navigator.INTRO2);
-          }
-        });
+        scene = new Scene(intro1, AppConstants.WIDTH, AppConstants.HEIGHT);
+        scene.setOnKeyPressed(key -> Navigator.go(Navigator.INTRO2));
         break;
 
       case INTRO2:
         Intro2 intro2 = new Intro2();
         intro2.draw();
         scene.setRoot(intro2);
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-          public void handle(KeyEvent key) {
-            Navigator.go(Navigator.HOME);
-          }
-        });
+        scene.setOnKeyPressed(key -> Navigator.go(Navigator.HOME));
         break;
 
       default:
@@ -61,10 +53,8 @@ public class Navigator {
         }
         home.draw();
         scene.setRoot(home);
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
-          public void handle(KeyEvent key) {
-            // switch it off
-          }
+        scene.setOnKeyPressed(key -> {
+          // switch it off
         });
         break;
 

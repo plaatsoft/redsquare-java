@@ -52,7 +52,7 @@ public class Settings extends MyPanel {
 			
 		button.setOnAction(new EventHandler<ActionEvent>() { 
 	       public void handle(ActionEvent event) {
-	    	   	if (up==true) {
+	    	   	if (up) {
 	    	   		letters[pos]++;
 	    	   		if (letters[pos]>90) {
 	    	   			letters[pos]=40;
@@ -63,7 +63,6 @@ public class Settings extends MyPanel {
 	       				letters[pos]=90;
 	    	   		}
 	       		}
-	    	   		    	   	
     	   		label[pos].setText(""+letters[pos]);
 	       }
 	    });
@@ -106,11 +105,9 @@ public class Settings extends MyPanel {
 		MyButton button = new MyButton(230, 420, "Close", 18, Navigator.HOME);		
 		getChildren().add(button);	
 		
-		button.setOnAction(new EventHandler<ActionEvent>() { 
-            public void handle(ActionEvent event) {
-            	CloudUser.set(new String(letters).replaceAll("-", ""));
-            	Navigator.go(Navigator.HOME);
-            }
-        });
+		button.setOnAction(event -> {
+      CloudUser.set(new String(letters).replaceAll("-", ""));
+      Navigator.go(Navigator.HOME);
+    });
 	}
 }

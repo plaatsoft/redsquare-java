@@ -35,17 +35,22 @@ public class Intro1 extends MyPanel {
     getChildren().add(new MyLabel(0, 410, "This software is open source and may be copied, distributed or modified", 16));
     getChildren().add(new MyLabel(0, 430, "under the terms of the GNU General Public License (GPL) version 3", 16));
 
-    setOnMousePressed(new EventHandler<MouseEvent>() {
-      public void handle(MouseEvent t) {
-        Navigator.go(Navigator.INTRO2);
-      }
-    });
+    setOnMousePressed(t -> Navigator.go(Navigator.INTRO2));
 
     AnimationTimer timer = new AnimationTimer() {
+
       float size = (float) 0.025;
+
+      private long lastTime = 0;
+      private final double TARGET_FPS = 50.0;
+      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
 
       @Override
       public void handle(long now) {
+        if (now - lastTime < TIME_PER_FRAME) {
+          return; // Skip frame to maintain desired speed
+        }
+        lastTime = now;
 
         size += 0.025;
         if (size >= 1) {

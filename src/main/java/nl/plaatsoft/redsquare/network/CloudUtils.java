@@ -10,7 +10,7 @@ import java.net.URL;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 
 public class CloudUtils {
 
@@ -19,39 +19,7 @@ public class CloudUtils {
 	private CloudUtils() {
 	    throw new IllegalStateException("CloudUtils class");
     }
-	
-	public static String executeGet(String targetURL) {
 
-		HttpURLConnection con=null;
-		
-		try {
-			URL obj = new URL(targetURL);
-			con = (HttpURLConnection) obj.openConnection();
-			
-			con.setRequestMethod("GET");
-			con.setRequestProperty("User-Agent", Constants.APP_NAME);
-
-			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			String inputLine;
-			StringBuffer response = new StringBuffer();
-			
-			while ((inputLine = in.readLine()) != null) {
-				response.append(inputLine);
-			}
-			in.close();
-
-			return response.toString();
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			return null;
-			
-		} finally {
-			if (con != null) {
-				con.disconnect();
-			}
-		}		
-	}
-	
 	public static String executePost(String targetURL, String urlParameters) {
 		
 		String text="";

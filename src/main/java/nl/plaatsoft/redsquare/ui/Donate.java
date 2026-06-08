@@ -16,31 +16,29 @@ public class Donate extends MyPanel {
 	public void draw() {
 		
 		Image image1 = new Image("images/background1.png");
-    	BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
-    	BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-    	Background background = new Background(backgroundImage);
+    BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
+    BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+		setBackground(new Background(backgroundImage));
     	
-    	setBackground(background);
-    	
-    	int y=20;
-    	getChildren().add(new MyLabel(0, y, "Donate", 60, "white", "-fx-font-weight: bold;"));
-    	y+=80;
-    	getChildren().add(new MyLabel(0, y, "If you enjoy this game, please sent me a", 24, "white"));
-    	y+=30;
-    	getChildren().add(new MyLabel(0, y, "small donation. You can make a donation", 24, "white"));
-    	y+=30;
-    	getChildren().add(new MyLabel(0, y, "online with your credit card, or PayPal account.", 24, "white"));
-    	y+=30;    	 
-    	getChildren().add(new MyLabel(0, y, "Your credit card will be processed by PayPal, a", 24, "white"));
-    	y+=30;
-    	getChildren().add(new MyLabel(0, y, "trusted name in secure online transactions.", 24, "white"));
-    	y+=60;
-    	getChildren().add(new MyLabel(0, y, "Please visit www.plaatsoft.nl", 24, "white"));
-    	y+=30;
-    	getChildren().add(new MyLabel(0, y, "Click on the donate link and follow the instructions", 24, "white"));    	
-    	y+=60;
-    	getChildren().add(new MyLabel(0, y, "Many thanks for your support!", 24, "white"));
+    int y=20;
+    getChildren().add(new MyLabel(0, y, "Donate", 60, "white", "-fx-font-weight: bold;"));
+    y+=80;
+    getChildren().add(new MyLabel(0, y, "If you enjoy this game, please sent me a", 24, "white"));
+    y+=30;
+    getChildren().add(new MyLabel(0, y, "small donation. You can make a donation", 24, "white"));
+    y+=30;
+    getChildren().add(new MyLabel(0, y, "online with your credit card, or PayPal account.", 24, "white"));
+    y+=30;
+    getChildren().add(new MyLabel(0, y, "Your credit card will be processed by PayPal, a", 24, "white"));
+    y+=30;
+    getChildren().add(new MyLabel(0, y, "trusted name in secure online transactions.", 24, "white"));
+    y+=60;
+    getChildren().add(new MyLabel(0, y, "Please visit www.plaatsoft.nl", 24, "white"));
+    y+=30;
+    getChildren().add(new MyLabel(0, y, "Click on the donate link and follow the instructions", 24, "white"));
+    y+=60;
+    getChildren().add(new MyLabel(0, y, "Many thanks for your support!", 24, "white"));
     	       		
-    	getChildren().add(new MyButton(230, 420, "Close", 18, Navigator.HOME));
+    getChildren().add(new MyButton(230, 420, "Close", 18, Navigator.HOME));
 	}
 }

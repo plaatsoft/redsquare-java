@@ -6,7 +6,6 @@ import javafx.scene.image.ImageView;
 public class MyImageView extends ImageView {
 
   public MyImageView(int x, int y, String resource, double scale) {
-
     Image image = new Image(resource);
     setImage(image);
     setLayoutX(x);

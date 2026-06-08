@@ -10,12 +10,12 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 import nl.plaatsoft.redsquare.tools.MyMusic;
 
-public class Main extends Application {
+public class AppMain extends Application {
 
-  private static final Logger log = LogManager.getLogger(Main.class);
+  private static final Logger log = LogManager.getLogger(AppMain.class);
 
   @Override
   public void start(Stage primaryStage) {
@@ -24,7 +24,7 @@ public class Main extends Application {
 
     Navigator.go(Navigator.INTRO1);
 
-    primaryStage.setTitle(Constants.APP_NAME + " v" + Constants.APP_VERSION);
+    primaryStage.setTitle(AppConstants.APP_NAME + " v" + AppConstants.APP_VERSION);
     primaryStage.setScene(Navigator.getScene());
     primaryStage.sizeToScene();
     primaryStage.setResizable(false);
@@ -35,7 +35,7 @@ public class Main extends Application {
   }
 
   void main(String[] args) {
-    log.info(Constants.APP_NAME + " v" + Constants.APP_VERSION + " start");
+    log.info(AppConstants.APP_NAME + " v" + AppConstants.APP_VERSION + " start");
 
     String version = System.getProperty("java.version");
     String[] parts = version.split("_");
@@ -45,6 +45,6 @@ public class Main extends Application {
     }
     launch(args);
 
-    log.info(Constants.APP_NAME + " v" + Constants.APP_VERSION + " end");
+    log.info(AppConstants.APP_NAME + " v" + AppConstants.APP_VERSION + " end");
   }
 }

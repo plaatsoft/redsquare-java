@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.json.JSONObject;
 
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 
 public class CloudUser {
 
@@ -22,8 +22,8 @@ public class CloudUser {
 				"&username=" + System.getProperty("user.name") +
 				"&nickname=" + nickName;
 
-		log.info("TX: {}?{}", Constants.APP_WS_URL, parameters);
-		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}", AppConstants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(AppConstants.APP_WS_URL, parameters);
 		log.info("RX: {}", json);
 					
 		try {
@@ -43,8 +43,8 @@ public class CloudUser {
 				"&username=" + System.getProperty("user.name") +
 				"&nickname=" + newNickName;
 						
-		log.info("TX: {}?{}", Constants.APP_WS_URL, parameters);
-		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}", AppConstants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(AppConstants.APP_WS_URL, parameters);
 		log.info("RX: {}", json);
 		
 		try {

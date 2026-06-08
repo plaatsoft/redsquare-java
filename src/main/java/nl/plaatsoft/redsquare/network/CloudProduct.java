@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import org.json.JSONObject;
 
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 
 public class CloudProduct {
 
@@ -20,12 +20,12 @@ public class CloudProduct {
 	public static void fetch() {
 
 		String parameters = "action=getProduct"+
-				"&product=" + Constants.APP_WS_NAME+
-				"&version=" + Constants.APP_VERSION+
+				"&product=" + AppConstants.APP_WS_NAME+
+				"&version=" + AppConstants.APP_VERSION+
 				"&os="+System.getProperty("os.name").replace(" ","");
 						
-		log.info("TX: {}?{}",Constants.APP_WS_URL, parameters);
-		String json = CloudUtils.executePost(Constants.APP_WS_URL, parameters);
+		log.info("TX: {}?{}", AppConstants.APP_WS_URL, parameters);
+		String json = CloudUtils.executePost(AppConstants.APP_WS_URL, parameters);
 		log.info("RX: {}", json);
 		
 		try {

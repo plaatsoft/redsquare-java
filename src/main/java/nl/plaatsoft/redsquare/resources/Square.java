@@ -3,7 +3,7 @@ package nl.plaatsoft.redsquare.resources;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 
 public class Square extends ImageView {
 
@@ -49,9 +49,9 @@ public class Square extends ImageView {
   public void move() {
     if (directionHorizontal == 1) {
       x += step;
-      if (x > (Constants.WIDTH - width)) {
+      if (x > (AppConstants.WIDTH - width)) {
         directionHorizontal = 0;
-        x = Constants.WIDTH - width;
+        x = AppConstants.WIDTH - width;
         collisionSound();
       }
     } else {
@@ -65,9 +65,9 @@ public class Square extends ImageView {
 
     if (directionVertical == 1) {
       y += step;
-      if (y > (Constants.HEIGHT - height)) {
+      if (y > (AppConstants.HEIGHT - height)) {
         directionVertical = 0;
-        y = Constants.HEIGHT - height;
+        y = AppConstants.HEIGHT - height;
         collisionSound();
       }
     } else {

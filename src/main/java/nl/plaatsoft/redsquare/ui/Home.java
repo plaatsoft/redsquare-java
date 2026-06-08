@@ -13,7 +13,7 @@ import javafx.scene.layout.BackgroundSize;
 import nl.plaatsoft.redsquare.network.CloudVersion;
 import nl.plaatsoft.redsquare.resources.Square;
 import nl.plaatsoft.redsquare.resources.Squares;
-import nl.plaatsoft.redsquare.tools.Constants;
+import nl.plaatsoft.redsquare.common.AppConstants;
 import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
@@ -52,11 +52,9 @@ public class Home extends MyPanel {
     Background background = new Background(backgroundImage);
     setBackground(background);
 
-    getChildren().add(new MyLabel(30, 30, Constants.APP_NAME + " v" + Constants.APP_VERSION, 30, "white", "-fx-font-weight: bold;"));
-    getChildren().add(new MyLabel(30, 70, Constants.APP_BUILD, 20));
-    label3 = new MyLabel(30, 420, "", 20, "white");
-    getChildren().add(label3);
-
+    getChildren().add(new MyLabel(30, 30, AppConstants.APP_NAME + " v" + AppConstants.APP_VERSION, 30, "white", "-fx-font-weight: bold;"));
+    getChildren().add(new MyLabel(30, 70, AppConstants.APP_BUILD, 20));
+    getChildren().add(new MyLabel(30, 420, "", 20, "white"));
     int y = 30;
     getChildren().add(new MyButton(430, y, "Play", 18, Navigator.GAME));
     y += 45;
@@ -71,24 +69,35 @@ public class Home extends MyPanel {
     getChildren().add(new MyButton(430, y, "Release Notes", 18, Navigator.RELEASE_NOTES));
     y += 45;
     getChildren().add(new MyButton(430, y, "Donate", 18, Navigator.DONATE));
-
-    y = Constants.HEIGHT - 70;
+    y = AppConstants.HEIGHT - 70;
     getChildren().add(new MyButton(430, y, "Exit", 18, Navigator.EXIT));
 
     timer = new AnimationTimer() {
 
+      private long lastTime = 0;
+      private final double TARGET_FPS = 50.0;
+      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
+
       @Override
       public void handle(long now) {
+
+        if (now - lastTime < TIME_PER_FRAME) {
+          return; // Skip frame to maintain desired speed
+        }
+        lastTime = now;
+
         blue1.move();
         blue2.move();
         blue3.move();
         blue4.move();
         red.move();
-        label3.setText(upgrade);
+        if (upgrade!=null) {
+          label3 = new MyLabel(30, 420, upgrade, 20, "red");
+        }
       }
     };
 
-    task = new Task<Void>() {
+    task = new Task<>() {
       public Void call() {
         upgrade = CloudVersion.get();
         return null;

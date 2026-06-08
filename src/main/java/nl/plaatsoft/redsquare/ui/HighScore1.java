@@ -28,8 +28,7 @@ public class HighScore1 extends MyPanel {
     Image image1 = new Image("images/background1.png");
     BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
     BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-    Background background = new Background(backgroundImage);
-    setBackground(background);
+    setBackground(new Background(backgroundImage));
 
     y = 0;
     getChildren().add(new MyLabel(0, y, "Personal High Score", 50, "white", "-fx-font-weight: bold;"));
@@ -43,10 +42,8 @@ public class HighScore1 extends MyPanel {
     y = y + 20;
 
     lines = 1;
-    Iterator<Score> iter = ScoreLocal.getScore().iterator();
-    while (iter.hasNext()) {
+    for (Score score : ScoreLocal.getScore()) {
       y += 20;
-      Score score = iter.next();
       getChildren().add(new MyLabel(30, y, "" + lines, 20));
       getChildren().add(new MyLabel(80, y, formatter.format(score.getTimestamp()), 20));
       getChildren().add(new MyLabel(300, y, "" + score.getScore(), 20));
@@ -57,12 +54,10 @@ public class HighScore1 extends MyPanel {
           getChildren().add(new MyImageView(470 + (x * 25), y - 20, "images/star.png", 0.4));
         }
       }
-
       if (++lines > 15) {
         break;
       }
     }
-
     getChildren().add(new MyButton(230, 420, "Next", 18, Navigator.GLOBAL_HIGHSCORE));
   }
 }

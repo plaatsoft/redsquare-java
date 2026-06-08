@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ScoreGlobal {
 
-  private static ArrayList<Score> list = new ArrayList<Score>();
+  private static final ArrayList<Score> list = new ArrayList<>();
 
   private ScoreGlobal() {
     throw new IllegalStateException("ScoreGlobal class");

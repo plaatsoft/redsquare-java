@@ -1,7 +1,5 @@
 package nl.plaatsoft.redsquare.ui;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Orientation;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.image.Image;
@@ -17,13 +15,16 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 
 public class ReleaseNotes extends MyPanel {
 
-  private static String[] version = {
+  private static MyLabel text;
 
+  private static String[] version = {
     "07-06-2025 (Version 1.0.0)\n"
+      + "- Fix catch media audio issue, if any"
+      + "- Fix calculate OpenFx animation speed\n"
       + "- Fix cloud user call\n"
       + "- Replace maven with Gradle\n"
-      + "- Upgraded OpenFX from 8 to 26\n"
-      + "- Upgraded Java from 8 to 26\n"
+      + "- Upgraded OpenFX from 8 to 25\n"
+      + "- Upgraded Java from 8 to 25\n"
       + "- Upgraded Log4J to 2.26.0\n",
 
     "18-03-2020 (Version 0.4.0)\n"
@@ -58,22 +59,12 @@ public class ReleaseNotes extends MyPanel {
       + "- Added two intro pages with basic animation\n"
       + "- Added help, credits, release notes and donate page\n"};
 
-  /**
-   * The text.
-   */
-  private static MyLabel text;
-
-  /**
-   * Draw.
-   */
   public void draw() {
 
     Image image1 = new Image("images/background1.png");
     BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
     BackgroundImage backgroundImage = new BackgroundImage(image1, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-    Background background = new Background(backgroundImage);
-
-    setBackground(background);
+    setBackground(new Background(backgroundImage));
 
     ScrollBar s1 = new ScrollBar();
     s1.setMin(0);
@@ -87,17 +78,12 @@ public class ReleaseNotes extends MyPanel {
     s1.setMinHeight(275);
     s1.setOrientation(Orientation.VERTICAL);
 
-    s1.valueProperty().addListener(new ChangeListener<Number>() {
-      public void changed(ObservableValue<? extends Number> ov, Number old_val, Number new_val) {
-        text.setText(version[new_val.intValue()]);
-      }
-    });
+    s1.valueProperty().addListener((ov, old_val, new_val) -> text.setText(version[new_val.intValue()]));
 
     getChildren().add(s1);
 
     getChildren().add(new MyLabel(0, 20, "Release Notes", 60, "white", "-fx-font-weight: bold;"));
-    text = new MyLabel(30, 120, version[0], 20, "white");
-    getChildren().add(text);
+    getChildren().add(new MyLabel(30, 120, version[0], 20, "white"));
     getChildren().add(new MyButton(230, 420, "Close", 18, Navigator.HOME));
   }
 }
