@@ -101,8 +101,11 @@ public class Game extends MyPanel {
 
     timer1.stop();
 
-    AudioClip sound = new AudioClip(getClass().getResource("/music/effect2.mp3").toExternalForm());
-    sound.play();
+    try {
+      AudioClip sound = new AudioClip(getClass().getResource("/music/effect2.mp3").toExternalForm());
+      sound.play();
+    } catch (Exception _) {
+    }
 
     getChildren().add(new MyButton(230, 380, "Exit", 18, Navigator.HOME));
     int y = 50;
