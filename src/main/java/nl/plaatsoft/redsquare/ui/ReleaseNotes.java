@@ -15,12 +15,12 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 
 public class ReleaseNotes extends MyPanel {
 
-  private static MyLabel text;
+  private MyLabel text;
 
   private static String[] version = {
     "07-06-2025 (Version 1.0.0)\n"
-      + "- Fix catch media audio issue, if any"
-      + "- Fix calculate OpenFx animation speed\n"
+      + "- Catch exception when audio fails\n"
+      + "- Fix OpenFx animation speed\n"
       + "- Fix cloud user call\n"
       + "- Replace maven with Gradle\n"
       + "- Upgraded OpenFX from 8 to 25\n"
@@ -83,7 +83,8 @@ public class ReleaseNotes extends MyPanel {
     getChildren().add(s1);
 
     getChildren().add(new MyLabel(0, 20, "Release Notes", 60, "white", "-fx-font-weight: bold;"));
-    getChildren().add(new MyLabel(30, 120, version[0], 20, "white"));
+    text = new MyLabel(30, 120, version[0], 20, "white");
+    getChildren().add(text);
     getChildren().add(new MyButton(230, 420, "Close", 18, Navigator.HOME));
   }
 }

@@ -18,6 +18,8 @@ import nl.plaatsoft.redsquare.tools.MyButton;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+import static nl.plaatsoft.redsquare.common.AppConstants.TIME_PER_FRAME;
+
 public class Home extends MyPanel {
 
   private Square blue1;
@@ -75,8 +77,6 @@ public class Home extends MyPanel {
     timer = new AnimationTimer() {
 
       private long lastTime = 0;
-      private final double TARGET_FPS = 50.0;
-      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
 
       @Override
       public void handle(long now) {

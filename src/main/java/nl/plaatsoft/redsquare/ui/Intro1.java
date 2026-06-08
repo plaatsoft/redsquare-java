@@ -17,6 +17,8 @@ import nl.plaatsoft.redsquare.tools.MyImageView;
 import nl.plaatsoft.redsquare.tools.MyLabel;
 import nl.plaatsoft.redsquare.tools.MyPanel;
 
+import static nl.plaatsoft.redsquare.common.AppConstants.TIME_PER_FRAME;
+
 public class Intro1 extends MyPanel {
 
   private MyImageView imageView1;
@@ -42,8 +44,6 @@ public class Intro1 extends MyPanel {
       float size = (float) 0.025;
 
       private long lastTime = 0;
-      private final double TARGET_FPS = 50.0;
-      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
 
       @Override
       public void handle(long now) {

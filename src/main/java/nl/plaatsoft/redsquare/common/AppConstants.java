@@ -14,4 +14,8 @@ public class AppConstants {
 	public static final int BORDER_SIZE = 35;
 	public static final int WIDTH = 640;
 	public static final int HEIGHT = 480;
+
+	// Calculate frame rate
+	public static final double TARGET_FPS = 100.0;
+	public static final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
 }

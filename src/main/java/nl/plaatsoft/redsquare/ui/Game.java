@@ -33,6 +33,8 @@ import nl.plaatsoft.redsquare.tools.MyPanel;
 import nl.plaatsoft.redsquare.tools.Score;
 import nl.plaatsoft.redsquare.tools.ScoreLocal;
 
+import static nl.plaatsoft.redsquare.common.AppConstants.TIME_PER_FRAME;
+
 public class Game extends MyPanel {
 
   private static final SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
@@ -207,8 +209,6 @@ public class Game extends MyPanel {
     timer1 = new AnimationTimer() {
 
       private long lastTime = 0;
-      private final double TARGET_FPS = 50.0;
-      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
 
       @Override
       public void handle(long now) {
@@ -254,10 +254,7 @@ public class Game extends MyPanel {
     timer2 = new AnimationTimer() {
 
       int rotate = 0;
-
       private long lastTime = 0;
-      private final double TARGET_FPS = 50.0;
-      private final double TIME_PER_FRAME = 1_000_000_000.0 / TARGET_FPS;
 
       @Override
       public void handle(long now) {
@@ -287,7 +284,7 @@ public class Game extends MyPanel {
     blue2.setPosition(AppConstants.WIDTH - blue2.getWidth() - 1, 1);
     blue3.setPosition(1, AppConstants.HEIGHT - blue3.getHeight() - 1);
     blue4.setPosition(AppConstants.WIDTH - blue4.getWidth() - 1, AppConstants.HEIGHT - blue4.getHeight() - 1);
-    red.setPosition((AppConstants.WIDTH / 2) - (red.getWidth() / 2), (AppConstants.HEIGHT / 2) - (red.getHeight() / 2));
+    red.setPosition(((double) AppConstants.WIDTH / 2) - ((double) red.getWidth() / 2), ((double) AppConstants.HEIGHT / 2) - ((double) red.getHeight() / 2));
 
     blue1.setStep(level);
     blue2.setStep(level);

@@ -39,7 +39,7 @@ public class AppMain extends Application {
 
     String version = System.getProperty("java.version");
     String[] parts = version.split("_");
-    if (((parts[0].equals("1.7.0") && Integer.parseInt(parts[1]) < 70)) || ((parts[0].equals("1.8.0") && Integer.parseInt(parts[1]) < 100))) {
+    if ((parts[0].equals("1.7.0") && Integer.parseInt(parts[1]) < 70) || (parts[0].equals("1.8.0") && Integer.parseInt(parts[1]) < 100)) {
       JOptionPane.showMessageDialog(null, "Java v" + version + " is to old. Please upgrade!");
       System.exit(1);
     }

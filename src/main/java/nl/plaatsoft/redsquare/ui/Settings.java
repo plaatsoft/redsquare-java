@@ -50,22 +50,20 @@ public class Settings extends MyPanel {
 		button.setLayoutX(x);
 		button.setLayoutY(y);
 			
-		button.setOnAction(new EventHandler<ActionEvent>() { 
-	       public void handle(ActionEvent event) {
-	    	   	if (up) {
-	    	   		letters[pos]++;
-	    	   		if (letters[pos]>90) {
-	    	   			letters[pos]=40;
-	    	   		}
-	       		} else {
-	       			letters[pos]--;
-	       			if (letters[pos]<40) {
-	       				letters[pos]=90;
-	    	   		}
-	       		}
-    	   		label[pos].setText(""+letters[pos]);
-	       }
-	    });
+		button.setOnAction(event -> {
+        if (up) {
+          letters[pos]++;
+          if (letters[pos]>90) {
+            letters[pos]=40;
+          }
+        } else {
+          letters[pos]--;
+          if (letters[pos]<40) {
+            letters[pos]=90;
+          }
+        }
+        label[pos].setText(""+letters[pos]);
+    });
 		return button;
 	}
 

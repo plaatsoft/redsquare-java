@@ -1,7 +1,5 @@
 package nl.plaatsoft.redsquare.tools;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import nl.plaatsoft.redsquare.ui.Navigator;
 

@@ -11,7 +11,7 @@ public class CloudUser {
 
 	private static final Logger log = LogManager.getLogger( CloudUser.class);
 	private static int uid=0;
-	private static String nickName = System.getProperty("user.name");
+	private static String nickName = System.getProperty("user.name").toUpperCase();
 
 	private CloudUser() {
 	    throw new IllegalStateException("CloudUser class");

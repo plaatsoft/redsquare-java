@@ -11,10 +11,10 @@ public class Square extends ImageView {
   private int directionVertical;
   private double x;
   private double y;
-  private double width;
-  private double height;
+  private final double width;
+  private final double height;
   private int step;
-  private boolean sound;
+  private final boolean sound;
 
   public void setPosition(double x, double y) {
     this.x = x;
@@ -23,30 +23,20 @@ public class Square extends ImageView {
     setLayoutY(y);
   }
 
-  public Square(Image image, int x, int y, int dirHor, int dirVer, int step, boolean sound) {
+  public Square(Image image, int x, int y, int directionHorizontal, int directionVertical, int step, boolean sound) {
 
     setImage(image);
     this.x = x;
     this.y = y;
-    this.width = getImage().getWidth();
-    this.height = getImage().getHeight();
-    this.directionHorizontal = dirHor;
-    this.directionVertical = dirVer;
+    this.directionHorizontal = directionHorizontal;
+    this.directionVertical = directionVertical;
     this.step = step;
     this.sound = sound;
+    this.width = getImage().getWidth();
+    this.height = getImage().getHeight();
 
     setLayoutX(x);
     setLayoutY(y);
-  }
-
-  private void collisionSound() {
-    if (sound) {
-      try {
-        AudioClip sound = new AudioClip(getClass().getResource("/music/effect1.mp3").toExternalForm());
-        sound.play();
-      } catch (Exception _) {
-      }
-    }
   }
 
   public void move() {
@@ -84,6 +74,16 @@ public class Square extends ImageView {
 
     setLayoutX(x);
     setLayoutY(y);
+  }
+
+  private void collisionSound() {
+    if (sound) {
+      try {
+        AudioClip sound = new AudioClip(getClass().getResource("/music/effect1.mp3").toExternalForm());
+        sound.play();
+      } catch (Exception _) {
+      }
+    }
   }
 
   public boolean collision(Square red) {
