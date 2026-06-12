@@ -34,7 +34,7 @@ public class AppMain extends Application {
     MyMusic.play();
   }
 
-  void main(String[] args) {
+  public static void main(String[] args) {
     log.info(AppConstants.APP_NAME + " v" + AppConstants.APP_VERSION + " start");
 
     String version = System.getProperty("java.version");

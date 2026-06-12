@@ -35,13 +35,13 @@ dependencies {
 }
 
 application {
-    mainClass.set("nl.plaatsoft.redsquare.AppMain")
+    mainClass.set("nl.plaatsoft.redsquare.Launcher")
 }
 
 // Shadow JAR (recommended for easy distribution)
 tasks.shadowJar {
     archiveBaseName.set("redsquare")
     manifest {
-        attributes["Main-Class"] = "nl.plaatsoft.redsquare.AppMain"
+        attributes["Main-Class"] = "nl.plaatsoft.redsquare.Launcher"
     }
 }
